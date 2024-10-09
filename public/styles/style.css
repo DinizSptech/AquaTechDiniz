@@ -66,7 +66,7 @@ body{
 .titulo {
     color: #32B9CD;
     width: fit-content;
-    font-weight: 800;
+    font-weight: 500;
 }
 
 
@@ -126,7 +126,7 @@ body{
 .box {
     display: flex;
     flex-direction: row-reverse;
-    align-items: center;
+    align-items: flex-end;
     text-align: center;
 }
 
@@ -152,7 +152,7 @@ body{
 }
 
 .version {
-    margin-bottom: 3%;
+    align-self: flex-start;
     font-size:12px;
 }
 .login{
