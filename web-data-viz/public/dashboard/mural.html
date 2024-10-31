@@ -30,6 +30,7 @@
 
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                <p id="b_cpf">Seu cpf estará aqui</p>
             </div>
 
             <div class="btn-nav-white">
@@ -101,6 +102,7 @@
 <script>
     
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    b_cpf.innerHTML = sessionStorage.CPF_USUARIO;
 
     function limparFormulario() {
         document.getElementById("form_postagem").reset();

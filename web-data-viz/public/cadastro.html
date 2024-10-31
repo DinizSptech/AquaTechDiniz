@@ -66,16 +66,16 @@
             <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
           </div>
           <div class="campo">
+            <span>Cpf:</span>
+            <input id="cpf_input" type="text" placeholder="xxxxxxxxxxx" />
+          </div>
+          <div class="campo">
             <span>Senha:</span>
             <input id="senha_input" type="password" placeholder="******" />
           </div>
           <div class="campo">
             <span>Confirmação da Senha:</span>
             <input id="confirmacao_senha_input" type="password" placeholder="******" />
-          </div>
-          <div class="campo">
-            <span>Insira seu cpf:</span>
-            <input id="cpf_input" type="text" placeholder="******" />
           </div>
           <button class="botao" onclick="cadastrar()">Cadastrar</button>
         </div>
@@ -112,10 +112,10 @@
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
+    var cpfVar = cpf_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
     var codigoVar = codigo_input.value;
-    var cpfVar = cpf_input.value;
     var idEmpresaVincular
 
     // Verificando se há algum campo em branco
@@ -129,7 +129,7 @@
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+        "(Todos os campos em branco)";
 
       finalizarAguardar();
       return false;
@@ -137,7 +137,7 @@
       setInterval(sumirMensagem, 5000);
     }
 
-    if(nomeVar.lenght <= 1){
+    if(nomeVar.length <= 1){
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "(Nome curto demais)";
@@ -159,10 +159,10 @@
       setInterval(sumirMensagem, 5000);
     }
 
-    if(senhaVar.lenght <= 7){
+    if(senhaVar.length <= 7){
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(Email precisa de @ e .)";
+        "(A sua senha tem menos de 8 digitos)";
 
         finalizarAguardar();
         return false;
@@ -181,16 +181,17 @@
       setInterval(sumirMensagem, 5000);
     }
 
-    if(cpfVar.lenght != 11){
+    if(cpfVar.length != 11){
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "O cpf deve ter 11 digitos";
-
+        `O seu cpf tem ${cpfVar.lenght} digitos`;
+        console.log(cpfVar.lenght)
         finalizarAguardar();
         return false;
     } else {
       setInterval(sumirMensagem, 5000);
     }
+
 
 
     // Verificando se o código de ativação é de alguma empresa cadastrada
@@ -201,7 +202,7 @@
         break;
       } else {
         cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
+        mensagem_erro.innerHTML = "(Código de empresa sinválido)";
         finalizarAguardar();
       }
     }
@@ -218,7 +219,7 @@
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
-        cpfServer: cpfVar, 
+        cpfServer: cpfVar,
         idEmpresaVincularServer: idEmpresaVincular
       }),
     })

@@ -28,6 +28,7 @@ function autenticar(req, res) {
                                         email: resultadoAutenticar[0].email,
                                         nome: resultadoAutenticar[0].nome,
                                         senha: resultadoAutenticar[0].senha,
+                                        cpf: resultadoAutenticar[0].cpf,
                                         aquarios: resultadoAquarios
                                     });
                                 } else {
@@ -55,9 +56,9 @@ function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
+    var cpf = req.body.cpfServer;
     var senha = req.body.senhaServer;
     var fkEmpresa = req.body.idEmpresaVincularServer;
-    var cpf = req.body.cpfServer;
 
     // Faça as validações dos valores
     if (nome == undefined) {
